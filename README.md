@@ -144,4 +144,7 @@ Em desenvolvimento.
 
 ## 18. Conclusão
 
-Em desenvolvimento.
+O desenvolvimento deste projeto ajudou a equipe a entender melhor como funciona a modelagem de dados partindo de uma situação real. Ao analisar nosso projeto, percebemos que antes de pensar no banco de dados é necessário entender como a empresa funciona, quais problemas existem e quais informações precisam ser organizadas.
+
+Durante o projeto, aprendemos principalmente a transformar essas informações em uma estrutura mais organizada, identificando entidades, atributos, relacionamentos e regras de negócio. Também foi importante entender que uma decisão feita em uma parte da modelagem pode influenciar as outras, por isso é necessário analisar cada etapa com atenção. Com isso, o projeto ajudou a desenvolver não só o conhecimento sobre modelagem de dados, mas também uma visão mais prática de como um banco de dados pode ser planejado para atender às necessidades de uma empresa.
+
