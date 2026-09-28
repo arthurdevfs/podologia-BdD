@@ -88,7 +88,15 @@ Em desenvolvimento.
 
 ## 9. Restrições e políticas organizacionais
 
-Em desenvolvimento.
+* Os dados dos clientes devem ser mantidos em sigilo.
+* Somente usuários autorizados podem acessar as informações.
+* Cada cliente deve possuir um cadastro único.
+* O CPF não deve ser duplicado entre clientes.
+* Os registros dos atendimentos devem ser armazenados corretamente.
+* As informações de avaliação devem ser registradas antes do atendimento.
+* O status de Agendar deve representar corretamente a situação do atendimento.
+* As informações de pagamento devem estar relacionadas ao atendimento correspondente.
+
 
 ## 10. Fluxogramas
 
