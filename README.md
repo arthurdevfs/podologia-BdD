@@ -100,7 +100,9 @@ Em desenvolvimento.
 
 ## 10. Fluxogramas
 
-Em desenvolvimento.
+### Fluxograma do principal acesso
+
+![Fluxograma principal](fluxogramas/fluxograma-principal.jpeg)
 
 ## 11. Entidades
 
