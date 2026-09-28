@@ -70,6 +70,16 @@ Em desenvolvimento.
 
 ## 7. Requisitos não funcionais
 
+* **RNF01 – Segurança:** somente usuários autorizados poderão acessar as informações do sistema.
+* **RNF02 – Privacidade:** os dados pessoais e informações dos clientes deverão ser mantidos em sigilo.
+* **RNF03 – Usabilidade:** o sistema deverá possuir uma interface simples e fácil de utilizar pelos funcionários.
+* **RNF04 – Desempenho:** o sistema deverá apresentar as informações e realizar as operações em tempo adequado.
+* **RNF05 – Integridade:** o sistema deverá manter os dados cadastrados corretos e evitar registros inconsistentes.
+* **RNF06 – Disponibilidade:** o sistema deverá estar disponível durante o horário de funcionamento da empresa.
+* **RNF07 – Backup:** os dados deverão possuir cópias de segurança para evitar perda de informações.
+* **RNF08 – Controle de acesso:** cada usuário deverá acessar somente as funcionalidades e informações necessárias para sua função.
+
+
 Em desenvolvimento.
 
 ## 8. Regras de negócio
