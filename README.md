@@ -102,7 +102,7 @@ Em desenvolvimento.
 
 ### Fluxograma do principal acesso
 
-![Fluxograma principal](fluxogramas/fluxograma-principal.jpeg)
+![Fluxograma principal](Fluxogramas/fluxograma-principal.jpeg)
 
 ## 11. Entidades
 
