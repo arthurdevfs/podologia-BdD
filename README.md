@@ -80,8 +80,6 @@ Em desenvolvimento.
 * **RNF08 – Controle de acesso:** cada usuário deverá acessar somente as funcionalidades e informações necessárias para sua função.
 
 
-Em desenvolvimento.
-
 ## 8. Regras de negócio
 
 Em desenvolvimento.
