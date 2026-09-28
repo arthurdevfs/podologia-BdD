@@ -16,10 +16,10 @@
 
 ## 2. Caracterização da empresa
 
-**Nome:** PODOLOGIA TATUAPE
-**Segmento:** Serviço
-**Porte:** Microempresa
-**Atividade principal:** Podologia
+- **Nome:** PODOLOGIA TATUAPE
+- **Segmento:** Serviço
+- **Porte:** Microempresa
+- **Atividade principal:** Podologia
 
 A empresa oferece tratamentos para unhas encravadas, calos e calosidades, fissuras e rachaduras, micoses e frieiras, verrugas plantares, corte técnico e cuidados especiais.
 
