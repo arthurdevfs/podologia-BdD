@@ -106,7 +106,17 @@ Em desenvolvimento.
 
 ## 11. Entidades
 
-Em desenvolvimento.
+* Pessoa
+* Cliente
+* Funcionário
+* Agendar
+* Atendimento
+* Anamnese
+* Avaliação
+* Procedimento
+* Executa
+* Pagamento
+
 
 ## 12. Atributos
 
