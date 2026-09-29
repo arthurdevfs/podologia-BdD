@@ -114,8 +114,6 @@ Conta a Receber + Conta a Pagar → Fluxo de Caixa → Saldo
 ### Consultas e estoque
 
 * **RF20** – O sistema deverá permitir consultar o histórico de atendimentos e gerar relatórios por período, status ou profissional.
-* **RF21** – O sistema deverá permitir cadastrar, consultar e atualizar produtos e fornecedores.
-* **RF22** – O sistema deverá permitir registrar e consultar movimentações de entrada e saída do estoque.
 
 
 ## 7. Requisitos não funcionais
@@ -160,9 +158,10 @@ Conta a Receber + Conta a Pagar → Fluxo de Caixa → Saldo
 
 ## 10. Fluxogramas
 
-### Fluxograma do principal acesso
+### Fluxograma principal
 
-![Fluxograma principal](Fluxogramas/fluxograma-principal.jpeg)
+![Fluxograma principal](Documentação/Fluxogramas/fluxograma-principal.jpeg)
+
 
 ## 11. Entidades
 
@@ -183,104 +182,9 @@ Conta a Receber + Conta a Pagar → Fluxo de Caixa → Saldo
 
 ## 12. Atributos
 
-### 1. Pessoa
+Os atributos das entidades estão documentados no arquivo abaixo:
 
-* Telefone
-* Email
-* CPF
-* Nome (composto por: Primeiro Nome e Sobrenome)
-
-### 2. Cliente
-
-* ID_Cliente
-* CPF
-* Data.nasc (Data de Nascimento)
-
-### 3. Funcionário
-
-* ID_Funcionario (ou ID_Funcionanog)
-* CPF
-* Comissão
-* Cargo
-
-### 4. Agendar
-
-* ID_Agendar
-* ID_Cliente
-* ID_Atendimento
-* Hora
-* Data
-* Status
-
-### 5. Atendimento
-
-* ID_Atendimento
-* ID_Funcionario
-* ID_Anamnese
-* ID_Avaliação
-* ID_Agendar
-
-### 6. Anamnese
-
-* ID_Anamnese
-* ID_Atendimento
-* Medicamentos
-* Histórico
-* OBS
-
-### 7. Avaliação
-
-* ID_Avaliação
-* Queixa Principal
-* OBS
-
-### 8. Procedimento
-
-* ID_Procedimento
-* Nome
-* Duração
-* Descrição
-* Preço Base
-
-### 9. Executa (Tabela Associativa / Relacionamento)
-
-* ID_Executa
-* ID_Atendimento
-* ID_Procedimento
-
-### 10. Pagamento
-
-* ID_Pagamento
-* Forma_Pag (Forma de Pagamento)
-* Hora
-* Data
-* Valor total
-* Status
-
-### 11. Conta a Receber
-
-* ID_Conta_Receber
-* Descrição
-* Valor
-* Data_Vencimento
-* Status
-
-### 12. Conta a Pagar
-
-* ID_Conta_Pagar
-* Descrição
-* Valor
-* Data_Vencimento
-* Status
-
-### 13. Fluxo de Caixa
-
-* ID_Fluxo
-* Data
-* Tipo (Entrada/Saída)
-* Descrição
-* Valor
-* Saldo
+[Atributos](Documentação/atributos.md)
 
 
 ## 13. Relacionamentos
@@ -298,23 +202,90 @@ Conta a Receber + Conta a Pagar → Fluxo de Caixa → Saldo
 
 ## 14. Cardinalidades
 
-Em desenvolvimento.
+### Cardinalidades do modelo
+
+![Cardinalidades do modelo](Documentação/Cardinalidades/cardinalidades.jpeg)
+
 
 ## 15. Dicionário de dados conceitual
 
-Em desenvolvimento.
+O dicionário de dados conceitual está disponível na pasta abaixo:
+
+[Dicionário de Dados](Documentação/Dicionário/)
+
 
 ## 16. DER
 
-Em desenvolvimento.
+### Diagrama Entidade-Relacionamento
+
+![Diagrama Entidade-Relacionamento](Documentação/DER/der.jpeg)
 
 ## 17. Justificativas técnicas
 
-Em desenvolvimento.
+### Cliente e Agendar
+
+Foi definida a cardinalidade 1:N entre Cliente e Agendar, pois um cliente pode realizar vários agendamentos ao longo do tempo, sendo necessário manter o histórico desses registros.
+
+### Agendar e Atendimento
+
+Foi utilizada Agendar como entidade associativa entre Cliente e Atendimento, pois o agendamento precisa armazenar informações próprias, como data, hora e status, permitindo controlar os horários e a situação dos atendimentos.
+
+### Atendimento e Funcionário
+
+Foi definido que cada Atendimento deve estar relacionado a um Funcionário, pois é necessário identificar o profissional responsável por cada atendimento realizado.
+
+### Atendimento e Anamnese
+
+Foi realizado o relacionamento entre Atendimento e Anamnese, pois as informações da anamnese são necessárias para registrar o histórico do cliente, incluindo medicamentos, histórico e observações.
+
+### Atendimento e Avaliação
+
+Foi definida a cardinalidade 1:1 entre Atendimento e Avaliação, pois cada atendimento possui uma avaliação prévia. A avaliação ocorre antes do atendimento e registra informações como queixa principal e observações.
+
+### Atendimento e Procedimento
+
+Foi utilizada a entidade associativa Executa para relacionar Atendimento e Procedimento, pois um atendimento pode possuir vários procedimentos e um mesmo procedimento pode ser realizado em diferentes atendimentos. Dessa forma, é possível registrar quais procedimentos foram executados em cada atendimento.
+
+### Atendimento e Pagamento
+
+Foi realizado o relacionamento entre Atendimento e Pagamento, pois o pagamento precisa estar vinculado ao atendimento correspondente, permitindo controlar informações como forma de pagamento, valor, data, hora e status.
+
+### Pessoa, Cliente e Funcionário
+
+Foi decidido manter Pessoa separada de Cliente e Funcionário, pois Pessoa armazena informações gerais, enquanto Cliente e Funcionário possuem informações específicas. Essa organização evita a repetição desnecessária de dados.
+
+### Utilização de Agendar
+
+Foi utilizada Agendar em vez de criar uma entidade chamada “Agendamento”, pois, no modelo da equipe, Agendar representa a associação entre Cliente e Atendimento e possui atributos próprios, como data, hora e status.
+
+### Utilização de Executa
+
+Foi utilizada Executa para relacionar Atendimento e Procedimento, pois existe uma relação de muitos para muitos: um atendimento pode possuir vários procedimentos e um procedimento pode estar presente em diferentes atendimentos. Isso permite registrar corretamente os procedimentos realizados em cada atendimento.
+
+### Conta a Receber e Fluxo de Caixa
+
+Foi realizado o relacionamento entre Conta a Receber e Fluxo de Caixa, pois os valores a receber representam entradas financeiras que devem ser registradas no fluxo de caixa, permitindo acompanhar as movimentações financeiras da empresa.
+
+### Conta a Pagar e Fluxo de Caixa
+
+Foi realizado o relacionamento entre Conta a Pagar e Fluxo de Caixa, pois os valores a pagar representam saídas financeiras que devem ser registradas no fluxo de caixa, permitindo controlar as despesas e movimentações da empresa.
+
+### Utilização do Fluxo de Caixa
+
+Foi utilizada a entidade Fluxo de Caixa para registrar as movimentações financeiras da empresa, contendo informações como data, tipo de movimentação, descrição, valor e saldo.
+
 
 ## 18. Conclusão
 
-O desenvolvimento deste projeto ajudou a equipe a entender melhor como funciona a modelagem de dados partindo de uma situação real. Ao analisar nosso projeto, percebemos que antes de pensar no banco de dados é necessário entender como a empresa funciona, quais problemas existem e quais informações precisam ser organizadas.
+Com o desenvolvimento deste projeto, conseguimos entender melhor como funciona a modelagem de dados na prática, principalmente a importância de conhecer o funcionamento da empresa antes de pensar na estrutura do banco de dados. Ao analisar a PODOLOGIA TATUAPE, tivemos que identificar os problemas, entender os processos e pensar em quais informações realmente precisavam ser organizadas.
 
-Durante o projeto, aprendemos principalmente a transformar essas informações em uma estrutura mais organizada, identificando entidades, atributos, relacionamentos e regras de negócio. Também foi importante entender que uma decisão feita em uma parte da modelagem pode influenciar as outras, por isso é necessário analisar cada etapa com atenção. Com isso, o projeto ajudou a desenvolver não só o conhecimento sobre modelagem de dados, mas também uma visão mais prática de como um banco de dados pode ser planejado para atender às necessidades de uma empresa.
+Durante esse processo, aprendemos a trabalhar com entidades, atributos, relacionamentos e regras de negócio, além de perceber como uma decisão em uma parte do modelo pode afetar as outras. O projeto também ajudou a desenvolver nosso raciocínio para transformar uma situação do mundo real em uma estrutura de dados mais organizada e que possa atender às necessidades da empresa.
+
+
+## Documentos complementares
+
+O Modelo Entidade-Relacionamento (MER) está disponível na pasta abaixo:
+
+[Modelo Entidade-Relacionamento (MER)](Documentação/MER/)
+
 
