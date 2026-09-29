@@ -158,9 +158,7 @@ Conta a Receber + Conta a Pagar → Fluxo de Caixa → Saldo
 
 ## 10. Fluxogramas
 
-### Fluxograma principal
-
-![Fluxograma principal](Documentação/Fluxogramas/fluxograma-principal.jpeg)
+[Fluxograma principal](Documentação/Fluxogramas/)
 
 
 ## 11. Entidades
@@ -202,9 +200,7 @@ Os atributos das entidades estão documentados no arquivo abaixo:
 
 ## 14. Cardinalidades
 
-### Cardinalidades do modelo
-
-![Cardinalidades do modelo](Documentação/Cardinalidades/cardinalidades.jpeg)
+Em desenvolvimento.
 
 
 ## 15. Dicionário de dados conceitual
@@ -216,9 +212,8 @@ O dicionário de dados conceitual está disponível na pasta abaixo:
 
 ## 16. DER
 
-### Diagrama Entidade-Relacionamento
+[Diagrama Entidade-Relacionamento](Documentação/DER/)
 
-![Diagrama Entidade-Relacionamento](Documentação/DER/der.jpeg)
 
 ## 17. Justificativas técnicas
 
