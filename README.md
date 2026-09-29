@@ -21,7 +21,14 @@
 - **Porte:** Microempresa
 - **Atividade principal:** Podologia
 
-A empresa oferece tratamentos para unhas encravadas, calos e calosidades, fissuras e rachaduras, micoses e frieiras, verrugas plantares, corte técnico e cuidados especiais.
+A empresa oferece tratamentos para:
+- Unhas encravadas
+- Calos e calosidades
+- Fissuras e rachaduras
+- Micoses e frieiras
+- Verrugas plantares
+- Corte técnico
+- Cuidados especiais
 
 ## 3. Justificativa da escolha
 
@@ -41,32 +48,75 @@ Escolhemos a empresa por conta da oportunidade. Identificamos que a empresa tem 
 ## 5. Processos de negócio
 
 ### Agendamento
-
 Cliente → Agendar → Atendimento → Pagamento
 
 ### Atendimento
-
 Cliente → Avaliação → Anamnese → Atendimento → Procedimento
 
 ### Cadastro do cliente
-
 Cliente → Cadastro
 
 ### Realização do procedimento
-
 Cliente → Atendimento → Funcionário → Procedimento
 
 ### Pagamento
-
 Cliente → Atendimento → Procedimento → Pagamento → Registro do pagamento
 
 ### Avaliação
-
 Cliente → Avaliação → Queixa principal → Observações → Atendimento
+
+### Controle financeiro
+Conta a Receber → Fluxo de Caixa
+Conta a Pagar → Fluxo de Caixa
+
+### Controle do fluxo de caixa
+Conta a Receber + Conta a Pagar → Fluxo de Caixa → Saldo
 
 ## 6. Requisitos funcionais
 
-Em desenvolvimento.
+### Usuários
+
+* **RF01** – O sistema deverá permitir que usuários autorizados acessem o sistema por meio de e-mail e senha.
+* **RF02** – O sistema deverá permitir a recuperação de senha.
+* **RF03** – O sistema deverá permitir que usuários autorizados cadastrem, alterem e desativem usuários e suas permissões de acesso.
+
+### Clientes
+
+* **RF04** – O sistema deverá permitir cadastrar clientes.
+* **RF05** – O sistema deverá permitir pesquisar clientes pelo nome ou CPF.
+* **RF06** – O sistema deverá permitir atualizar os dados cadastrais dos clientes.
+
+### Profissionais
+
+* **RF07** – O sistema deverá permitir cadastrar, consultar e atualizar os dados dos profissionais.
+* **RF08** – O sistema deverá permitir consultar a agenda dos profissionais.
+
+### Agendamento
+
+* **RF09** – O sistema deverá permitir realizar, alterar e cancelar agendamentos.
+* **RF10** – O sistema deverá permitir consultar os horários disponíveis.
+* **RF11** – O sistema deverá verificar a disponibilidade do profissional antes de confirmar um agendamento.
+* **RF12** – O sistema deverá permitir enviar lembretes aos clientes antes do atendimento.
+
+### Anamnese e atendimento
+
+* **RF13** – O sistema deverá permitir registrar o check-in do cliente.
+* **RF14** – O sistema deverá permitir preencher e consultar a anamnese do cliente.
+* **RF15** – O sistema deverá permitir registrar o atendimento realizado pelo profissional.
+* **RF16** – O sistema deverá permitir registrar os procedimentos realizados e suas observações.
+* **RF17** – O sistema deverá calcular e registrar o valor total do atendimento.
+
+### Pagamento e retorno
+
+* **RF18** – O sistema deverá permitir registrar o pagamento, sua forma e seu status.
+* **RF19** – O sistema deverá permitir finalizar o atendimento e registrar a necessidade de retorno.
+
+### Consultas e estoque
+
+* **RF20** – O sistema deverá permitir consultar o histórico de atendimentos e gerar relatórios por período, status ou profissional.
+* **RF21** – O sistema deverá permitir cadastrar, consultar e atualizar produtos e fornecedores.
+* **RF22** – O sistema deverá permitir registrar e consultar movimentações de entrada e saída do estoque.
+
 
 ## 7. Requisitos não funcionais
 
@@ -82,7 +132,19 @@ Em desenvolvimento.
 
 ## 8. Regras de negócio
 
-Em desenvolvimento.
+* **RN1** – Uma pessoa pode ser cadastrada como cliente ou funcionário, de acordo com sua função no sistema.
+* **RN2** – Cada cliente deve possuir um cadastro único, identificado pelo seu ID e CPF.
+* **RN3** – Um cliente pode realizar vários agendamentos, porém cada agendamento pertence a apenas um cliente.
+* **RN4** – Cada agendamento deve estar associado a um único atendimento, contendo data, hora e status.
+* **RN5** – Um atendimento deve possuir uma anamnese, contendo informações sobre o cliente, histórico, medicamentos e observações.
+* **RN6** – Um atendimento pode incluir um ou mais procedimentos, e cada procedimento possui nome, duração, descrição e preço base.
+* **RN7** – Cada atendimento deve ser realizado por um funcionário, sendo necessário registrar qual funcionário foi responsável pelo atendimento.
+* **RN8** – Um atendimento pode gerar um pagamento, que deve registrar forma de pagamento, valor, data, hora e status.
+* **RN9** – Todo atendimento deve possuir uma avaliação prévia, na qual serão registradas a queixa principal e as observações necessárias antes da realização do procedimento.
+* **RN10** – O status do agendamento deve indicar a situação do atendimento, permitindo diferenciar, por exemplo, agendamentos pendentes, realizados ou cancelados.
+* **RN11** – Toda conta a receber deve ser registrada no Fluxo de Caixa como uma entrada financeira, contendo valor, data e status da movimentação.
+* **RN12** – Toda conta a pagar deve ser registrada no Fluxo de Caixa como uma saída financeira, contendo valor, data e status da movimentação.
+
 
 ## 9. Restrições e políticas organizacionais
 
@@ -104,25 +166,135 @@ Em desenvolvimento.
 
 ## 11. Entidades
 
-* Pessoa
-* Cliente
-* Funcionário
-* Agendar
-* Atendimento
-* Anamnese
-* Avaliação
-* Procedimento
-* Executa
-* Pagamento
+- Pessoa
+- Cliente
+- Funcionário
+- Agendar
+- Atendimento
+- Anamnese
+- Avaliação
+- Procedimento
+- Executa
+- Pagamento
+- Conta a Receber
+- Conta a Pagar
+- Fluxo de Caixa
 
 
 ## 12. Atributos
 
-Em desenvolvimento.
+### 1. Pessoa
+
+* Telefone
+* Email
+* CPF
+* Nome (composto por: Primeiro Nome e Sobrenome)
+
+### 2. Cliente
+
+* ID_Cliente
+* CPF
+* Data.nasc (Data de Nascimento)
+
+### 3. Funcionário
+
+* ID_Funcionario (ou ID_Funcionanog)
+* CPF
+* Comissão
+* Cargo
+
+### 4. Agendar
+
+* ID_Agendar
+* ID_Cliente
+* ID_Atendimento
+* Hora
+* Data
+* Status
+
+### 5. Atendimento
+
+* ID_Atendimento
+* ID_Funcionario
+* ID_Anamnese
+* ID_Avaliação
+* ID_Agendar
+
+### 6. Anamnese
+
+* ID_Anamnese
+* ID_Atendimento
+* Medicamentos
+* Histórico
+* OBS
+
+### 7. Avaliação
+
+* ID_Avaliação
+* Queixa Principal
+* OBS
+
+### 8. Procedimento
+
+* ID_Procedimento
+* Nome
+* Duração
+* Descrição
+* Preço Base
+
+### 9. Executa (Tabela Associativa / Relacionamento)
+
+* ID_Executa
+* ID_Atendimento
+* ID_Procedimento
+
+### 10. Pagamento
+
+* ID_Pagamento
+* Forma_Pag (Forma de Pagamento)
+* Hora
+* Data
+* Valor total
+* Status
+
+### 11. Conta a Receber
+
+* ID_Conta_Receber
+* Descrição
+* Valor
+* Data_Vencimento
+* Status
+
+### 12. Conta a Pagar
+
+* ID_Conta_Pagar
+* Descrição
+* Valor
+* Data_Vencimento
+* Status
+
+### 13. Fluxo de Caixa
+
+* ID_Fluxo
+* Data
+* Tipo (Entrada/Saída)
+* Descrição
+* Valor
+* Saldo
+
 
 ## 13. Relacionamentos
 
-Em desenvolvimento.
+- Pessoa — é — Cliente
+- Pessoa — pode ser — Funcionário
+- Cliente — Agendar — Atendimento
+- Atendimento — possui — Anamnese
+- Avaliação — gera — Atendimento
+- Atendimento — Executa — Procedimento
+- Atendimento — tem — Pagamento
+- Conta a Receber — gera — Fluxo de Caixa
+- Conta a Pagar — gera — Fluxo de Caixa
+
 
 ## 14. Cardinalidades
 
