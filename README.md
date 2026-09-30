@@ -111,7 +111,7 @@ Conta a Receber + Conta a Pagar → Fluxo de Caixa → Saldo
 * **RF18** – O sistema deverá permitir registrar o pagamento, sua forma e seu status.
 * **RF19** – O sistema deverá permitir finalizar o atendimento e registrar a necessidade de retorno.
 
-### Consultas e estoque
+### Consultas e relatórios
 
 * **RF20** – O sistema deverá permitir consultar o histórico de atendimentos e gerar relatórios por período, status ou profissional.
 
@@ -200,7 +200,21 @@ Os atributos das entidades estão documentados no arquivo abaixo:
 
 ## 14. Cardinalidades
 
-Em desenvolvimento.
+- Pessoa 1 : 1 Cliente
+- Pessoa 1 : 1 Funcionário
+- Anamnese 1 : 1 Atendimento
+- Atendimento 1 : 1 Avaliação
+- Atendimento 1 : 1 Pagamento
+- Atendimento 1 : 1 Contas a Pagar
+- Atendimento 1 : 1 Contas a Receber
+- Contas a Receber 1 : 1 Fluxo de Caixa
+- Contas a Pagar 1 : 1 Fluxo de Caixa
+- Cliente N : N Atendimento
+- Cliente N : 1 Agendar 1 : N Atendimento
+- Atendimento N : N Procedimento
+- Atendimento N : 1 Executa 1 : N Procedimento
+- Funcionário N : N Procedimento
+- Funcionário N : 1 Executa 1 : N Procedimento
 
 
 ## 15. Dicionário de dados conceitual
