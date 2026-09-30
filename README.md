@@ -297,4 +297,8 @@ O Modelo Entidade-Relacionamento (MER) está disponível na pasta abaixo:
 
 [Modelo Entidade-Relacionamento (MER)](Documentação/MER/)
 
+Os Diários de Bordo estão disponíveis na pasta abaixo:
+
+[Diários de Bordo](Documentação/Diarios%20de%20Bordo/)
+
 
