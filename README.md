@@ -66,7 +66,9 @@ Cliente → Atendimento → Procedimento → Pagamento → Registro do pagamento
 Cliente → Avaliação → Queixa principal → Observações → Atendimento
 
 ### Controle financeiro
+
 Conta a Receber → Fluxo de Caixa
+
 Conta a Pagar → Fluxo de Caixa
 
 ### Controle do fluxo de caixa
