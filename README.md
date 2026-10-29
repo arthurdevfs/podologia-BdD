@@ -35,7 +35,6 @@
 - Julia Lindsay da Silva, RGM: 47396407
 - Nicolas Gabriel Parris Reis, RGM: 47646691
 - Paulo Alexandre Ferreira Martins, RGM: 48606341
-- Sabrina Hadassa Gomes de Andrade, RGM: 47817593
 - Yasmin da Silva Pinheiro, RGM: 49842013
 
 ### 1.2. Contexto do projeto
@@ -102,7 +101,7 @@ Essa organização evita repetir os mesmos dados básicos em diferentes cadastro
 
 A imagem abaixo apresenta parte da modelagem conceitual desenvolvida para o projeto.
 
-![Diagrama conceitual de pessoas, clientes e funcionários](Entrega%202/Imagens/entrega-final-pagina-4-imagem-1.png)
+![Diagrama conceitual de pessoas, clientes e funcionários](Entrega%202/imagens/entrega-final-pagina-4-imagem-1.png)
 
 ### 2.4. Documentação do levantamento
 
@@ -166,11 +165,11 @@ O modelo lógico contempla as seguintes tabelas:
 
 Os diagramas abaixo apresentam partes do modelo relacional desenvolvido durante o projeto.
 
-![Diagrama do modelo relacional, parte 1](Entrega%202/Imagens/entrega-final-pagina-5-imagem-1.png)
+![Diagrama do modelo relacional, parte 1](Entrega%202/imagens/entrega-final-pagina-5-imagem-1.png)
 
-![Diagrama do modelo relacional, parte 2](Entrega%202/Imagens/entrega-final-pagina-6-imagem-1.png)
+![Diagrama do modelo relacional, parte 2](Entrega%202/imagens/entrega-final-pagina-6-imagem-1.png)
 
-![Diagrama do modelo relacional, parte 3](Entrega%202/Imagens/entrega-final-pagina-7-imagem-1.png)
+![Diagrama do modelo relacional, parte 3](Entrega%202/imagens/entrega-final-pagina-7-imagem-1.png)
 
 ### 4.3. Observação sobre o modelo lógico e a implementação
 
@@ -368,15 +367,15 @@ Essas diferenças são registradas para distinguir o modelo previsto da estrutur
 
 Os scripts completos estão disponíveis nos seguintes arquivos:
 
-- **Script completo:** [script-completo-banco-massa-consultas.sql](Entrega%202/Scripts/script-completo-banco-massa-consultas.sql), com a criação do banco, tabelas, massa de dados e consultas.
-- **Exportação do banco:** [exportacao-banco-podologia-tatuape.sql](Entrega%202/Scripts/exportacao-banco-podologia-tatuape.sql).
-- **Consultas adicionais das Etapas 18 e 19:** [consultas-adicionais-etapas-18-e-19.sql](Entrega%202/Scripts/consultas-adicionais-etapas-18-e-19.sql).
+- **Script completo:** [script-completo-banco-massa-consultas.sql](Entrega%202/scripts/script-completo-banco-massa-consultas.sql), com a criação do banco, tabelas, massa de dados e consultas.
+- **Exportação do banco:** [exportacao-banco-podologia-tatuape.sql](Entrega%202/scripts/exportacao-banco-podologia-tatuape.sql).
+- **Consultas adicionais das Etapas 18 e 19:** [consultas-adicionais-etapas-18-e-19.sql](Entrega%202/scripts/consultas-adicionais-etapas-18-e-19.sql).
 
 #### Registro visual da documentação SQL
 
 A imagem abaixo foi extraída do PDF das etapas 16 e 17 e complementa a descrição da implementação.
 
-![Captura do banco de dados presente no PDF das etapas 16 e 17](Entrega%202/Imagens/etapas-16-17-pagina-3-imagem-1.png)
+![Captura do banco de dados presente no PDF das etapas 16 e 17](Entrega%202/imagens/etapas-16-17-pagina-3-imagem-1.png)
 
 *Figura 5. Captura de tela incorporada ao PDF recebido. A imagem é apresentada como documentação visual, não como comprovação independente de que todo o script foi executado.*
 
@@ -413,7 +412,7 @@ Esses resultados esperados fazem parte da documentação do script. Sua confirma
 
 A imagem a seguir complementa o registro dos dados documentado nas etapas 16 e 17.
 
-![Captura de dados no banco presente no PDF das etapas 16 e 17](Entrega%202/Imagens/etapas-16-17-pagina-4-imagem-1.png)
+![Captura de dados no banco presente no PDF das etapas 16 e 17](Entrega%202/imagens/etapas-16-17-pagina-4-imagem-1.png)
 
 *Figura 6. Captura de dados incorporada ao documento das etapas 16 e 17. Os resultados das consultas gerenciais e de auditoria devem ser confirmados no ambiente de execução.*
 
@@ -440,7 +439,7 @@ As consultas relacionam informações operacionais e financeiras para apoiar o a
 
 ### 11.1. Consultas gerenciais complementares
 
-O arquivo [consultas-adicionais-etapas-18-e-19.sql](Entrega%202/Scripts/consultas-adicionais-etapas-18-e-19.sql) preserva as duas consultas gerenciais e as duas consultas de auditoria adicionais recebidas. A segunda consulta gerencial mantém o SQL original e precisa de revisão na condição de junção antes da execução.
+O arquivo [consultas-adicionais-etapas-18-e-19.sql](Entrega%202/scripts/consultas-adicionais-etapas-18-e-19.sql) preserva as duas consultas gerenciais e as duas consultas de auditoria adicionais recebidas. A segunda consulta gerencial mantém o SQL original e precisa de revisão na condição de junção antes da execução.
 
 A consulta de formas de pagamento apresenta quantidade, valor e participação percentual de cada modalidade nos recebimentos confirmados. Ela **não calcula taxas cobradas pelas operadoras**, pois o arquivo não contém campos de taxa; essa análise exigiria dados adicionais.
 
@@ -622,6 +621,6 @@ Os documentos da Entrega 1 estão organizados na pasta `Documentação/`, que co
 - **Fluxogramas:** representação dos processos de negócio, na pasta `Documentação/Fluxogramas/`.
 - **Atributos:** documentação dos atributos das entidades do modelo conceitual, no arquivo `Documentação/atributos.md`.
 - **Diários de bordo:** registros das atividades desenvolvidas ao longo do projeto, na pasta `Documentação/Diarios de Bordo/`.
-- **Script completo:** [script-completo-banco-massa-consultas.sql](Entrega%202/Scripts/script-completo-banco-massa-consultas.sql).
+- **Script completo:** [script-completo-banco-massa-consultas.sql](Entrega%202/scripts/script-completo-banco-massa-consultas.sql).
 - **Exportação do banco:** [exportacao-banco-podologia-tatuape.sql](Entrega%202/Scripts/exportacao-banco-podologia-tatuape.sql).
 - **Consultas adicionais das Etapas 18 e 19:** [consultas-adicionais-etapas-18-e-19.sql](Entrega%202/Scripts/consultas-adicionais-etapas-18-e-19.sql).
