@@ -355,7 +355,7 @@ Esse material funciona como referência para consultar os atributos, compreender
 
 O dicionário está disponível na pasta:
 
-[Acessar o dicionário de dados](Documenta%C3%A7%C3%A3o/Dicionario/)
+[Acessar o dicionário de dados](https://github.com/arthurdevfs/podologia-BdD/tree/main/Documenta%C3%A7%C3%A3o/Dicionario)
 
 A documentação complementar da modelagem também pode ser consultada no arquivo [atributos.md](Documenta%C3%A7%C3%A3o/atributos.md).
 
@@ -369,9 +369,11 @@ A estrutura contempla 26 tabelas, com definição de chaves primárias (PK), cha
 
 ### Arquivos SQL
 
-- [Script completo do banco de dados, massa de dados e consultas](scripts/script-completo-banco-massa-consultas.sql)
-- [Script de exportação do banco de dados](scripts/exportacao-banco-podologia-tatuape.sql)
-- [Consultas complementares](scripts/consultas-adicionais-etapas-18-e-19.sql)
+[Script completo do banco de dados, massa de dados e consultas](https://github.com/arthurdevfs/podologia-BdD/blob/main/Entrega%202/scripts/script-completo-banco-massa-consultas.sql)
+
+[Script de exportação do banco de dados](https://github.com/arthurdevfs/podologia-BdD/blob/main/Entrega%202/scripts/exportacao-banco-podologia-tatuape.sql)
+
+[Consultas complementares](https://github.com/arthurdevfs/podologia-BdD/blob/main/Entrega%202/scripts/consultas-adicionais-etapas-18-e-19.sql)
 
 **Registro da implementação:**
 
