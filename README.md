@@ -355,7 +355,7 @@ Esse material funciona como referência para consultar os atributos, compreender
 
 O dicionário está disponível na pasta:
 
-[**Acessar o dicionário de dados**](Documenta%C3%A7%C3%A3o/Dicionario/)
+[Acessar o dicionário de dados](Documenta%C3%A7%C3%A3o/Dicionario/)
 
 A documentação complementar da modelagem também pode ser consultada no arquivo [atributos.md](Documenta%C3%A7%C3%A3o/atributos.md).
 
@@ -375,7 +375,7 @@ A estrutura contempla 26 tabelas, com definição de chaves primárias (PK), cha
 
 **Registro da implementação:**
 
-![Implementação do banco de dados](imagens/etapas-16-17-pagina-3-imagem-1.png)
+![Implementação do banco de dados](Entrega%202/imagens/etapas-16-17-pagina-3-imagem-1.png)
 
 O script principal reúne a criação da estrutura, a inserção dos dados e as consultas utilizadas no desenvolvimento do projeto. Para executá-lo em um ambiente com dados existentes, recomenda-se realizar previamente uma cópia de segurança, pois o script contém comandos de preparação do banco de dados.
 
@@ -402,7 +402,7 @@ A massa de dados possibilita explorar diferentes situações do negócio e utili
 
 **Registro da massa de dados e dos testes:**
 
-![Massa de dados e testes](imagens/etapas-16-17-pagina-4-imagem-1.png)
+![Massa de dados e testes](Entrega%202/imagens/etapas-16-17-pagina-4-imagem-1.png)
 
 ## 11. Consultas Gerenciais (G01 a G10)
 
@@ -497,7 +497,7 @@ O uso dessas tecnologias deve considerar a segurança das informações, a priva
 
 Durante o desenvolvimento, foram produzidos documentos para registrar as etapas de modelagem, estruturação e implementação do banco de dados.
 
-A documentação complementar está disponível no diretório [`Documentação`](../Documenta%C3%A7%C3%A3o/), incluindo:
+A documentação complementar está disponível no diretório [Documentação](Documenta%C3%A7%C3%A3o/), incluindo:
 
 - **DER:** Diagrama Entidade-Relacionamento.
 - **MER:** Modelo Entidade-Relacionamento.
