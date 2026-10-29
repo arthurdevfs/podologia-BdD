@@ -355,7 +355,7 @@ Esse material funciona como referência para consultar os atributos, compreender
 
 O dicionário está disponível na pasta:
 
-[Acessar o dicionário de dados](https://github.com/arthurdevfs/podologia-BdD/tree/main/Documenta%C3%A7%C3%A3o/Dicionario)
+[Acessar o dicionário de dados](https://github.com/arthurdevfs/podologia-BdD/tree/main/Documenta%C3%A7%C3%A3o/Dicion%C3%A1rio)
 
 A documentação complementar da modelagem também pode ser consultada no arquivo [atributos.md](Documenta%C3%A7%C3%A3o/atributos.md).
 
