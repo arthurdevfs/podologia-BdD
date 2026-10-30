@@ -334,6 +334,15 @@ Entre as regras consideradas no projeto estão:
 - O cálculo de comissões considera os atendimentos e os valores definidos pela regra de negócio.
 - O fluxo de caixa reúne informações relacionadas às movimentações financeiras.
 
+**Decisões de modelagem**
+
+Algumas decisões foram adotadas para organizar as informações e representar os processos do negócio:
+
+- As informações gerais de identificação são centralizadas na entidade `PESSOA`, enquanto `CLIENTE` e `FUNCIONARIO` armazenam informações específicas de cada papel.
+- Os relacionamentos muitos para muitos são representados por tabelas associativas, como `PERFIL_PERMISSAO`, `PRODUTO_FORNECEDOR` e `PROCEDIMENTO_PRODUTO`.
+- As contas financeiras são separadas dos registros de recebimentos e pagamentos, permitindo distinguir os valores previstos das movimentações financeiras registradas.
+- A separação das informações em tabelas relacionadas facilita a consulta e a manutenção dos dados.
+
 ### 7.4. Regras consideradas na implementação
 
 A implementação e a massa de dados contemplam regras específicas, entre elas:
@@ -401,6 +410,12 @@ Entre os cenários contemplados estão:
 - Controle de comissões relacionadas aos atendimentos.
 
 A massa de dados possibilita explorar diferentes situações do negócio e utilizar as consultas para acompanhar informações operacionais e financeiras.
+
+**Validação e limitações dos testes**
+
+A massa de dados e as consultas permitem analisar diferentes cenários e verificar aspectos da consistência das informações. Entretanto, a existência desses recursos não comprova, isoladamente, a execução e a validação de todas as regras de negócio.
+
+A validação completa da implementação depende da execução dos scripts em um ambiente de banco de dados e da realização de testes específicos para as restrições de integridade e os processos operacionais e financeiros.
 
 **Registro da massa de dados e dos testes:**
 
