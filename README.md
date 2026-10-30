@@ -73,7 +73,7 @@ Os materiais do projeto estão organizados em duas entregas principais.
 
 - [Modelo Entidade-Relacionamento (MER)](Documenta%C3%A7%C3%A3o/MER/)
 - [Diagrama Entidade-Relacionamento (DER)](Documenta%C3%A7%C3%A3o/DER/)
-- [Dicionário de dados](Documenta%C3%A7%C3%A3o/Dicionario/)
+- [Dicionário de dados](Documenta%C3%A7%C3%A3o/Dicionário/)
 - [Fluxogramas](Documenta%C3%A7%C3%A3o/Fluxogramas/)
 - [Atributos do modelo](Documenta%C3%A7%C3%A3o/atributos.md)
 - [Diários de bordo](Documenta%C3%A7%C3%A3o/Diarios%20de%20Bordo/)
