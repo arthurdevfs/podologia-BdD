@@ -10,13 +10,13 @@
 6. [Normalização](#6-normalização)
 7. [Restrições de integridade e regras de negócio](#7-restrições-de-integridade-e-regras-de-negócio)
 8. [Dicionário de dados](#8-dicionário-de-dados)
-9. [Implementação física e SQL](#9-implementação-física-e-sql)
+9. [Implementação do banco de dados](#9-implementação-do-banco-de-dados)
 10. [Massa de dados e testes](#10-massa-de-dados-e-testes)
 11. [Consultas gerenciais](#11-consultas-gerenciais)
-12. [Consultas de auditoria](#12-consultas-de-auditoria)
+12. [Verificação de integridade](#12-verificação-de-integridade)
 13. [Análise de dados, BI e Inteligência Artificial](#13-análise-de-dados-bi-e-inteligência-artificial)
 14. [Documentação e evolução do projeto](#14-documentação-e-evolução-do-projeto)
-15. [Conclusão](#15-conclusão)
+15. [Considerações finais](#15-considerações-finais)
 16. [Documentos complementares](#16-documentos-complementares)
 
 ---
@@ -54,12 +54,12 @@ Os principais objetivos do projeto são:
 - Aplicar os conceitos de normalização e integridade dos dados.
 - Implementar a estrutura do banco por meio de comandos SQL.
 - Inserir dados fictícios para representar situações de uso do sistema.
-- Desenvolver consultas gerenciais e de auditoria.
+- Desenvolver consultas gerenciais e de verificação de integridade.
 - Explorar possibilidades de análise de dados, Business Intelligence (BI) e Inteligência Artificial (IA).
 
 ### 1.4. Escopo
 
-O sistema contempla cadastros, agendamentos, atendimentos, anamneses, avaliações, procedimentos, fornecedores, produtos, movimentações de estoque, contas a pagar e a receber, recebimentos, pagamentos e comissões.
+O sistema contempla cadastros, agendamentos, atendimentos, anamneses, avaliações, procedimentos, fornecedores, produtos, movimentações de estoque, contas a pagar e a receber, recebimentos, pagamentos, fluxo de caixa e comissões.
 
 A estrutura também contempla usuários, perfis e permissões de acesso, além de lembretes relacionados aos agendamentos.
 
@@ -104,7 +104,7 @@ Entre os requisitos considerados estão:
 - Controlar produtos, fornecedores e movimentações de estoque.
 - Registrar contas a pagar, contas a receber, recebimentos e pagamentos.
 - Acompanhar comissões relacionadas aos atendimentos.
-- Disponibilizar consultas para análise operacional, financeira e auditoria.
+- Disponibilizar consultas para análise operacional, financeira e verificação de integridade.
 
 Esses requisitos orientaram a identificação das entidades, a definição dos atributos e a construção dos relacionamentos do banco de dados.
 
@@ -152,7 +152,7 @@ O modelo relacional organiza os dados em tabelas, cada uma responsável por repr
 
 As tabelas possuem atributos que descrevem as informações armazenadas e chaves que permitem identificar os registros e estabelecer relacionamentos.
 
-O modelo relacional implementado no script completo contempla as seguintes 26 tabelas:
+O script SQL mais recente contempla as seguintes 26 tabelas:
 
 - `PESSOA`
 - `TELEFONE_PESSOA`
@@ -179,7 +179,7 @@ O modelo relacional implementado no script completo contempla as seguintes 26 ta
 - `CONTA_PAGAR`
 - `PAGAMENTO_CONTA_PAGAR`
 - `FLUXO_CAIXA`
-- `COMISSAO_ATENDIMENTO`
+- `COMISSAO`
 
 Essa estrutura abrange as principais áreas do negócio, desde os cadastros e o controle de acesso até as operações de atendimento, estoque e financeiro.
 
@@ -334,25 +334,18 @@ Entre as regras consideradas no projeto estão:
 - O cálculo de comissões considera os atendimentos e os valores definidos pela regra de negócio.
 - O fluxo de caixa reúne informações relacionadas às movimentações financeiras.
 
-**Decisões de modelagem**
-
-Algumas decisões foram adotadas para organizar as informações e representar os processos do negócio:
-
-- As informações gerais de identificação são centralizadas na entidade `PESSOA`, enquanto `CLIENTE` e `FUNCIONARIO` armazenam informações específicas de cada papel.
-- Os relacionamentos muitos para muitos são representados por tabelas associativas, como `PERFIL_PERMISSAO`, `PRODUTO_FORNECEDOR` e `PROCEDIMENTO_PRODUTO`.
-- As contas financeiras são separadas dos registros de recebimentos e pagamentos, permitindo distinguir os valores previstos das movimentações financeiras registradas.
-- A separação das informações em tabelas relacionadas facilita a consulta e a manutenção dos dados.
-
 ### 7.4. Regras consideradas na implementação
 
-A implementação e a massa de dados contemplam regras específicas, entre elas:
+A implementação contempla restrições e condições específicas, entre elas:
 
 - Os CPFs são armazenados somente com dígitos.
-- A estrutura de contas a receber utiliza os estados definidos no banco implementado.
-- Os recebimentos e pagamentos confirmados são considerados no contexto das movimentações de caixa, conforme os critérios estabelecidos.
-- A comissão corresponde a 30% do valor executado por atendimento finalizado, de acordo com a regra definida no projeto.
+- Os registros de agendamento e atendimento possuem estados definidos na estrutura do banco.
+- Os recebimentos e pagamentos são relacionados às respectivas contas financeiras.
+- O fluxo de caixa referencia recebimentos ou pagamentos, respeitando a regra de origem definida na tabela.
+- A tabela de comissões registra o funcionário, o atendimento, o valor-base, o percentual, o valor da comissão, a data e o status.
+- O percentual de comissão deve permanecer entre 0 e 100, e os valores registrados não podem ser negativos.
 
-Essas regras devem ser interpretadas em conjunto com as estruturas, as restrições e os comandos definidos nos scripts SQL.
+Essas regras devem ser interpretadas em conjunto com as estruturas, as restrições e os comandos definidos no script SQL.
 
 ---
 
@@ -368,13 +361,14 @@ O dicionário está disponível na pasta:
 
 A documentação complementar da modelagem também pode ser consultada no arquivo [atributos.md](Documenta%C3%A7%C3%A3o/atributos.md).
 
-## 9. Implementação do Banco de Dados
+
+## 9. Implementação do banco de dados
 
 A implementação física do banco de dados foi realizada em SQL, utilizando o SGBD MySQL. Nessa etapa, o modelo relacional foi transformado em estruturas que permitem armazenar, relacionar e consultar as informações do sistema.
 
 O banco de dados utiliza a codificação `utf8mb4` e a collation `utf8mb4_unicode_ci`, permitindo o armazenamento adequado de caracteres especiais e acentuação.
 
-A estrutura contempla 26 tabelas, com definição de chaves primárias (PK), chaves estrangeiras (FK), restrições de unicidade, valores padrão e demais regras de integridade necessárias para manter a consistência dos dados.
+A estrutura contempla 26 tabelas, com definição de chaves primárias (PK), chaves estrangeiras (FK), restrições de unicidade, valores padrão e restrições `CHECK` para determinadas regras de integridade.
 
 ### Arquivos SQL
 
@@ -388,9 +382,15 @@ A estrutura contempla 26 tabelas, com definição de chaves primárias (PK), cha
 
 ![Implementação do banco de dados](Entrega%202/imagens/etapas-16-17-pagina-3-imagem-1.png)
 
-O script principal reúne a criação da estrutura, a inserção dos dados e as consultas utilizadas no desenvolvimento do projeto. Para executá-lo em um ambiente com dados existentes, recomenda-se realizar previamente uma cópia de segurança, pois o script contém comandos de preparação do banco de dados.
+O script principal reúne a criação da estrutura, a inserção dos dados e as consultas utilizadas no desenvolvimento do projeto.
 
-## 10. Massa de Dados e Cenários de Teste
+**Atenção:** o script de criação utiliza o comando `DROP DATABASE IF EXISTS podologia_tatuape` antes de criar o banco novamente. Portanto, sua execução pode apagar um banco existente com esse nome. Recomenda-se utilizar um ambiente apropriado e realizar uma cópia de segurança antes da execução.
+
+A estrutura SQL é a referência para a implementação física do banco. O dicionário de dados e os demais diagramas devem acompanhar essa estrutura para manter a documentação consistente com as tabelas e os atributos efetivamente definidos.
+
+---
+
+## 10. Massa de dados e testes
 
 Para representar o funcionamento do sistema, foi criada uma massa de dados fictícia, distribuída entre as 26 tabelas do banco de dados, totalizando 324 registros.
 
@@ -411,7 +411,7 @@ Entre os cenários contemplados estão:
 
 A massa de dados possibilita explorar diferentes situações do negócio e utilizar as consultas para acompanhar informações operacionais e financeiras.
 
-**Validação e limitações dos testes**
+### Validação e limitações dos testes
 
 A massa de dados e as consultas permitem analisar diferentes cenários e verificar aspectos da consistência das informações. Entretanto, a existência desses recursos não comprova, isoladamente, a execução e a validação de todas as regras de negócio.
 
@@ -421,7 +421,9 @@ A validação completa da implementação depende da execução dos scripts em u
 
 ![Massa de dados e testes](Entrega%202/imagens/etapas-16-17-pagina-4-imagem-1.png)
 
-## 11. Consultas Gerenciais (G01 a G10)
+---
+
+## 11. Consultas gerenciais (G01 a G10)
 
 Foram elaboradas consultas SQL com o objetivo de transformar os dados armazenados em informações úteis para o acompanhamento e a gestão da clínica.
 
@@ -444,42 +446,36 @@ Além das consultas principais, foram desenvolvidas consultas complementares par
 
 **Objetivo das consultas:** facilitar a análise das informações do negócio, apoiando o acompanhamento financeiro, operacional e comercial da clínica.
 
-## 12. Consultas de Auditoria e Integridade (A01 a A22)
+---
 
-Também foram desenvolvidas consultas voltadas à verificação da consistência dos dados e ao acompanhamento de possíveis divergências entre os registros relacionados.
+## 12. Verificação de integridade
 
-As consultas de auditoria estão organizadas em 22 verificações:
+Além das consultas gerenciais, o projeto conta com um script específico de verificação de integridade, desenvolvido para identificar possíveis inconsistências nos registros e nos relacionamentos entre as tabelas.
 
-| Consulta | Verificação |
-|---|---|
-| A01 | Configuração de perfis e permissões de acesso. |
-| A02 | Pessoas cadastradas simultaneamente como clientes e funcionários. |
-| A03 | Inconsistências relacionadas aos e-mails de login. |
-| A04 | Atendimentos finalizados sem o registro de anamnese esperado. |
-| A05 | Divergências entre os status de agendamentos e atendimentos. |
-| A06 | Inconsistências relacionadas às datas dos registros. |
-| A07 | Conferência dos valores das contas a receber. |
-| A08 | Identificação de recebimentos acima dos valores previstos. |
-| A09 | Verificação de vencimentos e status das contas a receber. |
-| A10 | Conferência dos lançamentos do fluxo de caixa. |
-| A11 | Identificação de estoque negativo. |
-| A12 | Identificação de produtos abaixo da quantidade mínima. |
-| A13 | Verificação dos lembretes cadastrados. |
-| A14 | Identificação de clientes sem registro de anamnese. |
-| A15 | Consulta de contas a receber em atraso. |
-| A16 | Consulta de contas a pagar em atraso. |
-| A17 | Conferência dos valores das comissões. |
-| A18 | Identificação de atendimentos finalizados sem comissão correspondente. |
-| A19 | Consulta de recebimentos pendentes. |
-| A20 | Comparação entre recebimentos e lançamentos no fluxo de caixa. |
-| A21 | Comparação entre pagamentos e lançamentos no fluxo de caixa. |
-| A22 | Conferência do saldo acumulado do fluxo de caixa. |
+O script reúne consultas SQL que permitem examinar diferentes aspectos da estrutura e dos dados armazenados.
 
-Essas consultas permitem acompanhar diferentes aspectos da integridade das informações, contribuindo para a identificação de divergências e para a manutenção da consistência dos registros.
+Entre as verificações contempladas estão:
 
-As consultas complementares também ampliam a análise de situações específicas, como atendimentos finalizados sem anamnese e contas a pagar vinculadas a fornecedores.
+- Contagem de registros nas tabelas do banco.
+- Identificação de dados obrigatórios ausentes.
+- Verificação de CPFs duplicados.
+- Identificação de registros sem correspondência nas tabelas relacionadas.
+- Conferência de relacionamentos entre pessoas, clientes e funcionários.
+- Verificação de associações envolvendo usuários, perfis e permissões.
+- Análise de registros de agendamentos e atendimentos.
+- Conferência de informações relacionadas a procedimentos e produtos.
+- Verificação de movimentações de estoque.
+- Análise de contas a pagar, contas a receber, recebimentos e pagamentos.
+- Conferência de referências utilizadas nos registros do fluxo de caixa.
+- Consulta às chaves estrangeiras cadastradas no banco.
 
-## 13. Business Intelligence (BI) e Inteligência Artificial (IA)
+O script utiliza consultas `SELECT` para apresentar os resultados das verificações. Dessa forma, permite localizar possíveis problemas e apoiar a análise da consistência dos dados.
+
+**Importante:** as consultas de verificação ajudam a identificar inconsistências, mas não substituem as restrições de integridade definidas na criação das tabelas. Além disso, a presença dos comandos no arquivo não comprova que todas as verificações foram executadas ou que os resultados foram aprovados.
+
+---
+
+## 13. Análise de dados, BI e Inteligência Artificial
 
 A estrutura do banco de dados também permite explorar possibilidades de utilização de Business Intelligence (BI) e Inteligência Artificial (IA) para apoiar a gestão da clínica.
 
@@ -510,7 +506,9 @@ Essas aplicações representam possibilidades de evolução do sistema. Sua impl
 
 O uso dessas tecnologias deve considerar a segurança das informações, a privacidade dos clientes e os princípios da Lei Geral de Proteção de Dados (LGPD).
 
-## 14. Documentação e Evolução do Projeto
+---
+
+## 14. Documentação e evolução do projeto
 
 Durante o desenvolvimento, foram produzidos documentos para registrar as etapas de modelagem, estruturação e implementação do banco de dados.
 
@@ -525,12 +523,22 @@ A documentação complementar está disponível no diretório [Documentação](D
 
 Os documentos podem ser consultados para compreender a organização do banco de dados e acompanhar a evolução da solução.
 
-## 15. Considerações Finais
+---
+
+## 15. Considerações finais
 
 O projeto ERP Podologia Tatuapé teve como objetivo desenvolver uma estrutura de banco de dados capaz de representar as principais atividades de uma clínica de podologia, contemplando desde o cadastro de clientes e funcionários até o controle de agendamentos, atendimentos, procedimentos, estoque e movimentações financeiras.
 
 Ao longo do desenvolvimento, foram aplicados conceitos fundamentais de modelagem de dados, como entidades, atributos, relacionamentos, cardinalidades, chaves primárias e estrangeiras e normalização.
 
-A implementação em SQL permitiu transformar o modelo relacional em uma estrutura funcional, acompanhada de uma massa de dados fictícia e de consultas voltadas à análise gerencial e à verificação da integridade das informações.
+A implementação em SQL permitiu transformar o modelo relacional em uma estrutura organizada, acompanhada de uma massa de dados fictícia e de consultas voltadas à análise gerencial e à verificação da integridade das informações.
 
 O resultado reúne os conhecimentos trabalhados durante a disciplina e apresenta uma base para futuras melhorias e ampliações, incluindo recursos de BI e Inteligência Artificial.
+
+---
+
+## 16. Documentos complementares
+
+Os materiais complementares do projeto estão organizados no repositório, permitindo consultar os registros produzidos durante as etapas de levantamento, modelagem e implementação.
+
+Para acessar esses materiais, consulte a pasta [Documentação](Documenta%C3%A7%C3%A3o/) e os arquivos SQL indicados nas seções anteriores.
