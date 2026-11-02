@@ -467,11 +467,12 @@ Entre as verificações contempladas estão:
 - Verificação de movimentações de estoque.
 - Análise de contas a pagar, contas a receber, recebimentos e pagamentos.
 - Conferência de referências utilizadas nos registros do fluxo de caixa.
+- Verificação dos relacionamentos entre comissões, funcionários e atendimentos.
+- Conferência dos valores registrados nas comissões, incluindo valores não negativos e percentuais entre 0 e 100.
+- Verificação dos status registrados nas comissões, considerando os valores permitidos: `pendente`, `paga` e `cancelada`.
 - Consulta às chaves estrangeiras cadastradas no banco.
 
 O script utiliza consultas `SELECT` para apresentar os resultados das verificações. Dessa forma, permite localizar possíveis problemas e apoiar a análise da consistência dos dados.
-
-**Importante:** as consultas de verificação ajudam a identificar inconsistências, mas não substituem as restrições de integridade definidas na criação das tabelas. Além disso, a presença dos comandos no arquivo não comprova que todas as verificações foram executadas ou que os resultados foram aprovados.
 
 ---
 
