@@ -205,46 +205,38 @@ Essa divisão facilita a compreensão das responsabilidades de cada grupo de tab
 ---
 
 ## 5. Chaves e relacionamentos
-
 ### 5.1. Chaves primárias
 
-A chave primária (*Primary Key* ou PK) identifica unicamente cada registro de uma tabela.
+A chave primária (Primary Key ou PK) identifica unicamente cada registro de uma tabela. Seu uso permite distinguir os registros e estabelecer referências entre diferentes entidades.
 
-No modelo relacional, as chaves primárias permitem distinguir registros de pessoas, clientes, funcionários, agendamentos, atendimentos, produtos e demais entidades.
-
-Uma chave primária deve garantir a identificação única de cada registro e não pode conter valores nulos.
+No modelo, as chaves primárias são utilizadas para identificar registros de pessoas, clientes, funcionários, agendamentos, atendimentos, produtos e demais entidades.
 
 ### 5.2. Chaves estrangeiras
 
-A chave estrangeira (*Foreign Key* ou FK) estabelece uma relação entre tabelas, permitindo que um registro faça referência a outro registro existente.
+A chave estrangeira (Foreign Key ou FK) estabelece uma referência entre tabelas, permitindo associar registros relacionados.
 
 Por exemplo, um agendamento pode referenciar um cliente, enquanto um atendimento pode estar associado ao agendamento correspondente.
 
-As chaves estrangeiras contribuem para a integridade referencial, evitando referências a registros inexistentes quando as restrições estão definidas e habilitadas.
-
 ### 5.3. Relacionamentos entre entidades
 
-Os relacionamentos representam as associações entre os elementos do negócio.
+Os relacionamentos representam as associações entre as entidades do negócio. Entre os principais exemplos estão:
 
-Entre os exemplos considerados na modelagem estão:
-
-- Pessoas associadas aos cadastros específicos de clientes ou funcionários.
-- Clientes associados a agendamentos.
-- Agendamentos relacionados aos atendimentos correspondentes.
-- Atendimentos relacionados aos procedimentos realizados.
-- Produtos associados a fornecedores.
-- Procedimentos associados aos produtos utilizados.
-- Contas financeiras relacionadas aos recebimentos e pagamentos.
-- Perfis relacionados às permissões por meio de uma tabela associativa.
-
-Essas relações permitem representar as associações existentes entre as informações e realizar consultas que envolvam diferentes áreas da empresa.
+Pessoas relacionadas aos cadastros de clientes e funcionários.
+Clientes relacionados aos agendamentos.
+Agendamentos relacionados aos atendimentos.
+Atendimentos relacionados aos procedimentos realizados.
+Produtos relacionados aos fornecedores.
+Procedimentos relacionados aos produtos utilizados.
+Contas financeiras relacionadas aos recebimentos e pagamentos.
+Perfis relacionados às permissões.
 
 ### 5.4. Relacionamentos muitos para muitos
 
-Um relacionamento muitos para muitos (N:N) ocorre quando vários registros de uma entidade podem estar associados a vários registros de outra entidade.
+Os relacionamentos muitos para muitos (N:N) são representados por tabelas associativas, que permitem registrar as combinações entre entidades.
 
-No modelo relacional, esse tipo de relacionamento pode ser representado por uma tabela associativa.
+No projeto, esse tipo de associação está presente em PERFIL_PERMISSAO, PRODUTO_FORNECEDOR e PROCEDIMENTO_PRODUTO.
 
+Essas tabelas permitem estruturar as associações por meio de chaves e manter as relações organizadas no modelo relacional.
 A tabela `PERFIL_PERMISSAO`, por exemplo, associa perfis às permissões disponíveis. As tabelas `PRODUTO_FORNECEDOR` e `PROCEDIMENTO_PRODUTO` também representam associações entre entidades.
 
 As tabelas associativas permitem registrar as combinações entre entidades de maneira estruturada, utilizando chaves para identificar as associações.
