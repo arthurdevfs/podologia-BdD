@@ -132,16 +132,13 @@ Os materiais complementares do levantamento e da modelagem estão disponíveis n
 
 ## 3. Evolução da modelagem
 
-A modelagem foi desenvolvida progressivamente, partindo da identificação dos requisitos e das entidades necessárias para representar as atividades da empresa.
+A modelagem do banco de dados foi desenvolvida de forma progressiva, partindo do levantamento dos requisitos e da identificação das entidades necessárias para representar as atividades da Podologia Tatuapé.
 
-Inicialmente, foram definidas as principais entidades e suas relações. Em seguida, os atributos foram organizados e as chaves foram estabelecidas para identificar os registros e permitir as associações entre as tabelas.
+A partir dessa identificação, foram definidos os atributos, as chaves e os relacionamentos entre as entidades, considerando as regras de negócio e as necessidades de organização das informações.
 
-O detalhamento da estrutura também considerou regras de negócio, restrições de integridade e necessidades relacionadas aos processos operacionais e financeiros.
+Posteriormente, a estrutura conceitual foi detalhada até sua representação relacional, permitindo estabelecer as tabelas, os tipos de dados e as restrições necessárias à implementação em SQL.
 
-A transformação da modelagem em uma estrutura implementável envolveu a definição das tabelas, dos tipos de dados, das chaves, das restrições e dos comandos SQL necessários à organização do banco.
-
-Os diagramas, documentos e scripts disponíveis no repositório permitem consultar os materiais produzidos durante o desenvolvimento e compreender a organização da solução.
-
+Os diagramas, documentos e scripts disponíveis no repositório registram as estruturas desenvolvidas e permitem acompanhar a evolução da modelagem até sua implementação.
 ---
 
 ## 4. Modelo relacional lógico
